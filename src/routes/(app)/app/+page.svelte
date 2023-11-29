@@ -1,46 +1,28 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
-    import type { NewsApiResponse, Article } from '../lib/article';
-    import { Avatar, Paginator } from '@skeletonlabs/skeleton';
-    import type { PaginationSettings } from '@skeletonlabs/skeleton';
+    import type { Article } from '$lib/types/Article';
+  import { Avatar, Paginator } from '@skeletonlabs/skeleton';
+  import type { PaginationSettings } from '@skeletonlabs/skeleton';
+      import type { PageData } from './$types';
+
+  export let data: PageData;
+
+  export let articles: Article[] = data.articles;
+  export let totalResults = data.totalResults;
+
+  let paginationSettings: PaginationSettings = {
+    page: 0,
+    limit: 3,
+    size: totalResults,
+    amounts: [3],
+  };
+
+  const onPageChange = (e: CustomEvent) => {
+    const num: number = e.detail;
+    // Redirect to the new page with the updated page number
+  };
+</script>
   
-    let articles: Article[] = [];
-    let isLoading = true;
-    let totalResults = 0;
-    let paginationSettings: PaginationSettings = {
-      page: 0,
-      limit: 3,
-      size: 3,
-      amounts: [3],
-    };
-  
-    const fetchNews = async (page: number) => {
-      isLoading = true;
-      const pageSize = 3;
-      try {
-        const response = await fetch(`https://newsapi.org/v2/everything?q=gym&pageSize=${pageSize}&page=${page}&apiKey=04a008c68c984796b9e8de51780c6b4c`);
-        const data: NewsApiResponse = await response.json();
-        articles = data.articles;
-        totalResults = data.totalResults;
-        paginationSettings.size = totalResults;
-      } catch (error) {
-        console.error('Error fetching news:', error);
-      } finally {
-        isLoading = false;
-      }
-    };
-  
-    const onPageChange = (e: CustomEvent) => {
-        let num: number = e.detail as number
-        num++;       
-        fetchNews(num);
-    };
-  
-    onMount(() => fetchNews(1));
-  
-  </script>
-  
-  {#if isLoading}
+  {#if articles.length === 0}
     <div>Loading...</div>
   {:else}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-6">
