@@ -12,7 +12,7 @@
     const entityData = writable(data.healthRecords ?? []);
   
     $: tableSource = {
-      head: ["Height", "Width", "Delete"],
+      head: ["Height", "Weight", "Delete"],
       body: $entityData.map((entity) => [
         entity.height,
         entity.weight,
