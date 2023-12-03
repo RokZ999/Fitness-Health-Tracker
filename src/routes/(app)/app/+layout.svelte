@@ -135,11 +135,10 @@
         </span>
         </svelte:fragment>
 
-        <AnimatedRoute>
             <svelte:fragment>
                     <slot />
             </svelte:fragment>
-        </AnimatedRoute>
+
     </AppShell>
 {:else}
     <div class="flex items-center justify-center h-screen">

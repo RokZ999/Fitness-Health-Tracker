@@ -26,7 +26,7 @@
   
 
   $: tableSource = {
-    head: ["Exercise Name", "Description", "Delete"],
+    head: ["Meal name", "Calories", "Delete"],
     body: $entityData.map((entity) => [
       entity.meal_name,
       entity.calories,

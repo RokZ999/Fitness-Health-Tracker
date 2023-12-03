@@ -13,6 +13,7 @@ export interface Article {
 }
 
 export interface NewsApiResponse {
+    code: string;
     status: string;
     totalResults: number;
     articles: Article[];
