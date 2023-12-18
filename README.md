@@ -1,38 +1,29 @@
-# create-svelte
+# This is basic Fitness-Health-Tracker build on (SSPOCK):
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+**SvelteKit 🌐**   (framework for web applications) : https://kit.svelte.dev/ \
+**Skeleton UI 💀** (Tailwind libary for Svelte)     : https://www.skeleton.dev/ \
+**PocketBase 🗃️**  (PocketBase open source Database): https://pocketbase.io/
 
-## Creating a project
+Demo on: https://fitness-health-tracker-7xcwuquvq-rokz999s-projects.vercel.app/app 
 
-If you're seeing this, you've probably already done this step. Congrats!
 
+# Preview 📸
+![image](https://github.com/RokZ999/Fitness-Health-Tracker/assets/71169333/b909ba5d-7211-44d1-b216-14d3b2e814ad)
+
+## Cloning the Repository & Building 🛠️
+Start by cloning the repository and navigating into the project directory:
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+git clone https://github.com/RokZ999/Fitness-Health-Tracker
+cd Fitness-Health-Tracker
 ```
 
-## Developing
+### Backend:
+Install Pocketbase https://pocketbase.io/docs/ \
+Import Schema: pb_schema.json \
+Run Pocketbase
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
+### Frontend:
 ```bash
 npm run build
+npm start
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
