@@ -8,7 +8,7 @@ export const load: PageServerLoad = async ({ parent }) => {
 
   if (!parentData || !parentData.user) {
     return { records: [] };
-}
+  }
 
   const healthRecords: HealthMetrics[] = await pb.collection('HealthMetrics').getFullList({
     sort: '-created',
@@ -21,23 +21,23 @@ export const load: PageServerLoad = async ({ parent }) => {
 
 
 export const actions: Actions = {
-    delete: async ({ request }) => {
-        const data = await request.formData();
-        const id = data.get('key') as string;
+  delete: async ({ request }) => {
+    const data = await request.formData();
+    const id = data.get('key') as string;
 
-        pb.collection('HealthMetrics').delete(id);
-    },
-    add: async ({ locals, request }) => {
-      const form = await request.formData();
-      const weight = form.get('weight');
-      const height = form.get('height');
-      const userId = locals.user?.id; 
+    pb.collection('HealthMetrics').delete(id);
+  },
+  add: async ({ locals, request }) => {
+    const form = await request.formData();
+    const weight = form.get('weight');
+    const height = form.get('height');
+    const userId = locals.user?.id;
 
 
-      await locals.pb.collection('HealthMetrics').create({
-          weight: weight,
-          height: height,
-          user_id: userId,
-      });
-    },
-  };
+    await locals.pb.collection('HealthMetrics').create({
+      weight: weight,
+      height: height,
+      user_id: userId,
+    });
+  },
+};

@@ -26,7 +26,9 @@
 </script>
 
 {#if code === "rateLimited"}
-  <h1 class="text-lg p-4">Could not load the latest news... The api rate limit reached...</h1>
+  <h1 class="text-lg p-4">
+    Could not load the latest news... The api rate limit reached...
+  </h1>
 {:else if articles.length === 0}
   <div>Loading...</div>
 {:else}
